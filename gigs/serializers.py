@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from gigs.models import Gig, Bid, Review, Profile
+from .models import Gig, Bid, Review, Profile
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:

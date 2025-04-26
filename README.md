@@ -1,6 +1,6 @@
 # Freelance Gig Platform API
 
-This is a **Freelance Gig Platform API**. It’s a Django thing with WebSockets for bidding, fake payments, and some rep scoring.
+This is my **Freelance Gig Platform API**. It’s a Django thing with WebSockets for bidding, fake payments, and some rep scoring.
 
 ## What’s It Do?
 - Bidding in real-time with WebSockets.

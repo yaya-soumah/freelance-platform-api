@@ -4,10 +4,9 @@ from django.db import transaction
 from rest_framework import viewsets, permissions, serializers, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from gigs.models import Gig, Bid, Review
-from gigs.serializers import GigSerializer, BidSerializer, ReviewSerializer
-from gigs.tasks import update_reputation
-
+from .models import Gig, Bid, Review
+from .serializers import GigSerializer, BidSerializer, ReviewSerializer
+from .tasks import update_reputation
 
 class GigViewSet(viewsets.ModelViewSet):
     queryset = Gig.objects.all()
@@ -83,6 +82,7 @@ class GigViewSet(viewsets.ModelViewSet):
             freelancer_profile.wallet += gig.accepted_bid.amount
             freelancer_profile.save()
             gig.save()
+
             #Send Websocket notification
             channel_layer = get_channel_layer()
             async_to_sync(channel_layer.group_send)(
